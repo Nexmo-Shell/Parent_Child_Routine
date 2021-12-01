@@ -30,7 +30,7 @@
             <Grid
                 Grid.Column="1"
                 Grid.Row="1">
-                <WrapPanel x:Name="PanelMainWindow"  Orientation="Horizontal" Margin="15" DataContext="{Binding Projects}" />
+                <WrapPanel x:Name="PanelMainWindow"  Orientation="Horizontal" Margin="15" DataContext="{Binding Projectviews, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </Grid>
 

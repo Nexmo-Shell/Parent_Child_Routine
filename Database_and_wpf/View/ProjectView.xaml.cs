@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database_and_wpf.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,14 @@ namespace Database_and_wpf.View
         public ProjectView()
         {
             InitializeComponent();
+        }
+
+        public ProjectView(int id)
+        {
+            InitializeComponent();
+            ProjectViewModel viewModel = new ProjectViewModel(id);
+            DataContext = viewModel;
+
         }
     }
 }

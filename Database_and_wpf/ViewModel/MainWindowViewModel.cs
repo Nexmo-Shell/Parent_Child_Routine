@@ -15,8 +15,12 @@ namespace Database_and_wpf.ViewModel
     public class MainWindowViewModel : BaseViewModel
     {
 
-        private readonly ObservableCollection<ProjectView> projectviews;
-        public ObservableCollection<ProjectView> Projectviews => projectviews;
+        private ObservableCollection<ProjectView> projectviews;
+        public ObservableCollection<ProjectView> Projectviews
+        {
+            get => projectviews;
+            set => SetPropertyRef(ref projectviews, value);
+        }
         private List<Project> projects;
         public List<Project> Projects => projects;
 
@@ -95,7 +99,7 @@ namespace Database_and_wpf.ViewModel
             {
                 if (project.ID_Project != 1)
                 {
-                   Projectviews.Add(new ProjectView());
+                   Projectviews.Add(new ProjectView(project.ID_Project));
                 }
             }
         }

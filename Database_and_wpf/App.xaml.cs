@@ -29,8 +29,6 @@ namespace Database_and_wpf
                 InsertStandard();
             };
 
-            
-
             MainWindow = new MainWindow();
             MainWindow.Show();
             base.OnStartup(e);

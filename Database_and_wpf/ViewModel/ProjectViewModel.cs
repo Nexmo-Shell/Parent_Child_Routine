@@ -33,6 +33,11 @@ namespace Database_and_wpf.ViewModel
             Abfrage();
         }
 
+        public ProjectViewModel(int id)
+        {
+            Project.ID_Project = id;
+        }
+
         public void Abfrage()
         {
             DataBaseConnection database = DataBaseConnection.GetDataBaseConnection();
@@ -46,11 +51,11 @@ namespace Database_and_wpf.ViewModel
                 while (reader.Read())
                 {
                     Project.ID_Project = reader.GetInt32(reader.GetOrdinal("ID_Project"));
-                        //Name = reader.GetString(reader.GetOrdinal("Name"))
-                    
+                    //Name = reader.GetString(reader.GetOrdinal("Name"))
+
                 }
             }
-
+            con.Close();
         }
 
     }
