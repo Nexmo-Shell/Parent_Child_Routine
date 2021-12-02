@@ -22,7 +22,7 @@ namespace Database_and_wpf.ViewModel
             set => SetPropertyRef(ref projectviews, value);
         }
         private List<Project> projects;
-        public List<Project> Projects => projects;
+        public List<Project> Projects { get => projects; set => SetPropertyRef(ref projects, value); }
 
         public MainWindowViewModel()
         {
@@ -75,7 +75,7 @@ namespace Database_and_wpf.ViewModel
         {
             DataBaseConnection database = DataBaseConnection.GetDataBaseConnection();
             SqliteConnection con = database.connect();
-            string getData = "Select ID_Project, Name From Projects";
+            string getData = "Select ID_Project, Name From Projects WHERE Id_Project_Parent = 1";
             SqliteCommand com = new(getData, con);
             con.Open();
             SqliteDataReader reader = com.ExecuteReader();
@@ -99,7 +99,7 @@ namespace Database_and_wpf.ViewModel
             {
                 if (project.ID_Project != 1)
                 {
-                   Projectviews.Add(new ProjectView(project.ID_Project));
+                    Projectviews.Add(new ProjectView(project.ID_Project));
                 }
             }
         }

@@ -28,7 +28,9 @@ namespace Database_and_wpf
         {
             InitializeComponent();
             MainWindowViewModel = ((MainWindowViewModel)DataContext);
+            AddChildren();
             MainWindowViewModel.Projectviews.CollectionChanged += AddChildren;
+            
         }
 
 
@@ -41,5 +43,13 @@ namespace Database_and_wpf
                 PanelMainWindow.Children.Add(child);
             }
         } 
+
+        public void AddChildren()
+        {
+            var list = MainWindowViewModel.Projectviews;
+            PanelMainWindow.Children.Clear();
+            foreach(var child in list)
+                PanelMainWindow.Children.Add(child);
+        }
     }
 }

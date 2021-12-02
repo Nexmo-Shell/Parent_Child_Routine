@@ -10,7 +10,7 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    <Border CornerRadius="25" Background="Beige" Margin="25" >
+    <Border CornerRadius="25" Background="darkred" Margin="25" >
 
         <Grid>
             <Grid.ColumnDefinitions>

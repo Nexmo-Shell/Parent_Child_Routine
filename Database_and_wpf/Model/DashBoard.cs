@@ -5,7 +5,7 @@ namespace Database_and_wpf.Model
 {
     public class DashBoard
     {
-
+       
         int id_Dashboard;
         string name;
 
@@ -13,6 +13,8 @@ namespace Database_and_wpf.Model
         public int Id_Dashboard { get => id_Dashboard; set { id_Dashboard = value; } }
 
         public string Name { get { return name; } set { name = value; } }
+
+      
 
     }
 }

@@ -13,6 +13,8 @@ namespace Database_and_wpf.ViewModel
             { this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); }
         }
 
+       
+
         public void SetPropertyRef<T>(ref T prop, T value, [CallerMemberName] string propertyName = "")
         {
             if (!Equals(prop, value))

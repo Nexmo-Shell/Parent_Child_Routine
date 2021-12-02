@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database_and_wpf.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace Database_and_wpf.View
         public DashboardView()
         {
             InitializeComponent();
+        }
+
+        public DashboardView(int id)
+        {
+            InitializeComponent();
+            DashboardViewModel ViewModel = new(id);
+            DataContext = ViewModel;
         }
     }
 }

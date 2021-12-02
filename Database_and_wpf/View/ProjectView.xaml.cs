@@ -21,17 +21,47 @@ namespace Database_and_wpf.View
     /// </summary>
     public partial class ProjectView : UserControl
     {
+
+        private readonly ProjectViewModel ProjectViewModel;
         public ProjectView()
         {
             InitializeComponent();
+            ProjectViewModel = ((ProjectViewModel)DataContext);
+           
+            ProjectViewModel.DashboardViews.CollectionChanged += AddChildren;
         }
 
         public ProjectView(int id)
         {
             InitializeComponent();
             ProjectViewModel viewModel = new ProjectViewModel(id);
-            DataContext = viewModel;
+            DataContext = viewModel; 
+            ProjectViewModel = ((ProjectViewModel)DataContext);
+            AddChildren();
+            ProjectViewModel.DashboardViews.CollectionChanged += AddChildren;
 
+
+
+        }
+
+        private void AddChildren(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            var list = ProjectViewModel.DashboardViews;
+            DashboardViewer.Children.Clear();
+            foreach (var child in list)
+            {
+                DashboardViewer.Children.Add(child);
+            }
+        }
+
+        public void AddChildren()
+        {
+            var list = ProjectViewModel.DashboardViews;
+            DashboardViewer.Children.Clear();
+            foreach (var child in list)
+            {
+                DashboardViewer.Children.Add(child);
+            }
         }
     }
 }
