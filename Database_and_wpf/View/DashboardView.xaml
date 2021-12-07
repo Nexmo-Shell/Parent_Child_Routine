@@ -33,17 +33,30 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <WrapPanel 
-                Margin="10,10,10,0"
+                Margin="10,10,10,15"
                 Grid.Row="0"
                 Background="Beige"
-                Orientation="Horizontal"/>
-                <Button
+                Orientation="Vertical">
+                    <TextBox
+                        Text="Hier kann ihr Text stehen"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="2"
+                        
+                        />
+                    <TextBox
+                        Text="Eingabe von Zusatzdaten"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="2"/>
+                </WrapPanel>
+                <!--<Button
                 Content="Add next ToDo"
                 Grid.Row="1"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"
                 Margin="0,5,35,5"
-                />
+                />-->
             </Grid>
         </Grid>
     </Border>

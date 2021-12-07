@@ -103,5 +103,7 @@ namespace Database_and_wpf.ViewModel
                 }
             }
         }
+
+        //private 
     }
 }

@@ -10,7 +10,7 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    <Border CornerRadius="25" Background="darkred" Margin="25" >
+    <Border CornerRadius="25" Background="darkred" Margin="25"  ScrollViewer.VerticalScrollBarVisibility="Visible" >
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -24,17 +24,36 @@
             <Button 
                 Content="Neuer Eintrag" Margin="10" 
                 Command="{Binding NewContentCommand}">
-                
+
 
             </Button>
+
             <Grid
                 Grid.Column="1"
                 Grid.Row="1">
-                <WrapPanel x:Name="PanelMainWindow"  Orientation="Horizontal" Margin="15" DataContext="{Binding Projectviews, UpdateSourceTrigger=PropertyChanged}" />
+                <ScrollViewer
+                    VerticalAlignment="Stretch"
+                    VerticalScrollBarVisibility="Auto"
+                    HorizontalAlignment="Stretch"
+                    HorizontalScrollBarVisibility="Auto">
+
+                    <WrapPanel 
+                    x:Name="PanelMainWindow"
+                    Orientation="Horizontal"
+                    Margin="15"
+                    AllowDrop="True" 
+                    MouseMove="Canvas_MouseMove"
+                    >
+                        <Canvas 
+                        DataContext="{Binding Projectviews}"
+                       
+                        />
+                    </WrapPanel>
+                </ScrollViewer>
             </Grid>
         </Grid>
 
     </Border>
 
-    
+
 </Window>

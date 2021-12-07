@@ -24,13 +24,19 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <WrapPanel 
+                <ScrollViewer
+                   HorizontalAlignment="Stretch"
+                   HorizontalScrollBarVisibility="Auto"
+                   VerticalAlignment="Stretch"
+                   VerticalScrollBarVisibility="Auto">
+                    <WrapPanel 
                     Name="DashboardViewer"
-                    Orientation="Horizontal" 
+                    Orientation="Vertical" 
                     Margin="10"
                     DataContext="{Binding DashboardViews, UpdateSourceTrigger=PropertyChanged}">
-                    <TextBlock Margin="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="This is a new Project. Add your Boards here." FontSize="16" />
-                </WrapPanel>
+                        <TextBlock Margin="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="This is a new Project. Add your Boards here." FontSize="16" />
+                    </WrapPanel>
+                </ScrollViewer>
                 <Button
                     Grid.Row="1"
                     Content="New Dashboard"
