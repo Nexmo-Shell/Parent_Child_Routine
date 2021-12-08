@@ -10,8 +10,26 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type ListBox}">
+            <!--<Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Canvas/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>-->
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        </Style>
+    </Window.Resources>
     <Border CornerRadius="25" Background="darkred" Margin="25"  ScrollViewer.VerticalScrollBarVisibility="Visible" >
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -24,18 +42,25 @@
             <Button 
                 Content="Neuer Eintrag" Margin="10" 
                 Command="{Binding NewContentCommand}">
-
-
             </Button>
-
             <Grid
                 Grid.Column="1"
-                Grid.Row="1">
-                <ScrollViewer
+                Grid.Row="1"
+                Background="Transparent">
+                <ListBox 
+                    ItemsSource="{Binding Projectviews}" 
+                    Background="Transparent" 
+                    HorizontalContentAlignment="Center" 
+                    VerticalContentAlignment="Top"
+                    AllowDrop="True"
+                    MouseMove="Canvas_MouseMove"
+                    
+                         />
+                <!--<ScrollViewer
                     VerticalAlignment="Stretch"
                     VerticalScrollBarVisibility="Auto"
                     HorizontalAlignment="Stretch"
-                    HorizontalScrollBarVisibility="Auto">
+                    HorizontalScrollBarVisibility="Disabled">
 
                     <WrapPanel 
                     x:Name="PanelMainWindow"
@@ -49,11 +74,8 @@
                        
                         />
                     </WrapPanel>
-                </ScrollViewer>
+                </ScrollViewer>-->
             </Grid>
         </Grid>
-
     </Border>
-
-
 </Window>

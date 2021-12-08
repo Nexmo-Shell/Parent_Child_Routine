@@ -28,29 +28,29 @@ namespace Database_and_wpf
         {
             InitializeComponent();
             MainWindowViewModel = ((MainWindowViewModel)DataContext);
-            AddChildren();
-            MainWindowViewModel.Projectviews.CollectionChanged += AddChildren;
+            //AddChildren();
+            //MainWindowViewModel.Projectviews.CollectionChanged += AddChildren;
             
         }
 
 
-        private void AddChildren(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            var list = MainWindowViewModel.Projectviews;
-            PanelMainWindow.Children.Clear();
-            foreach (var child in list)
-            {
-                PanelMainWindow.Children.Add(child);
-            }
-        } 
+        //private void AddChildren(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        //{
+        //    var list = MainWindowViewModel.Projectviews;
+        //    PanelMainWindow.Children.Clear();
+        //    foreach (var child in list)
+        //    {
+        //        PanelMainWindow.Children.Add(child);
+        //    }
+        //} 
 
-        public void AddChildren()
-        {
-            var list = MainWindowViewModel.Projectviews;
-            PanelMainWindow.Children.Clear();
-            foreach(var child in list)
-                PanelMainWindow.Children.Add(child);
-        }
+        //public void AddChildren()
+        //{
+        //    var list = MainWindowViewModel.Projectviews;
+        //    PanelMainWindow.Children.Clear();
+        //    foreach(var child in list)
+        //        PanelMainWindow.Children.Add(child);
+        //}
 
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
